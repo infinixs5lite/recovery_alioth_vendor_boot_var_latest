@@ -206,7 +206,9 @@ ifeq ($(FOX_VENDOR_BOOT_RECOVERY),1)
   BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/prebuilt/dtbs
   DTBIMAGE_PATH := $(DEVICE_PATH)/prebuilt/dtbs
   BOARD_DTBIMAGE_DIR := $(KERNEL_PATH)/prebuilt/dtbs
-  TARGET_PREBUILT_DTBIMAGE := $(KERNEL_PATH)/prebuilt/dtbs
+  TARGET_PREBUILT_DTBIMAGE := $(KERNEL_PATH)/prebuilt/dtbs/kona.dtb \
+  kona-v2.1.dtb \
+  kona-v2.dtb
 
   # header
   ifeq ($(BOARD_BOOT_HEADER_VERSION),4)
