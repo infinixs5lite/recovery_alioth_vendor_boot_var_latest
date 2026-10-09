@@ -77,6 +77,20 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_SETTINGS_ROOT_DIRECTORY=/data/recovery
 	export FOX_MISCELLANEOUS_ROOT_DIRECTORY=/sdcard
 
+   export FOX_ENABLE_KERNELSU_SUPPORT=1
+	# 添加KernelSU Next支持
+	export FOX_ENABLE_KERNELSU_NEXT_SUPPORT=1
+	# 添加SukiSU支持
+	export FOX_ENABLE_SUKISU_SUPPORT=1
+
+	F=$(find "device" -maxdepth 2 -name "alioth")
+	# 修改启动画面背景色为#000000
+	\cp -fp bootable/recovery/gui/theme/portrait_hdpi/splash.xml "$F"/recovery/root/twres/splash.xml
+	sed -i 's/value="#D34E38"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
+	sed -i 's/value="#FF8038"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
+
+	echo -e "\x1b[alioth: 当你看到这个消息的时候，所有的OrangeFox Var已经添加完毕！\x1b[m"
+	
 	# vendor_boot-as-recovery
 	if [ "$FOX_VENDOR_BOOT_RECOVERY" = "1" ]; then
 		export FOX_VARIANT="vBaR"
