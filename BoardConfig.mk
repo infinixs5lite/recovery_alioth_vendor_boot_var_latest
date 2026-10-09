@@ -57,9 +57,6 @@ BOARD_KERNEL_OFFSET        := 0x00008000
 BOARD_KERNEL_SECOND_OFFSET := 0x00f00000
 BOARD_DTB_OFFSET           := 0x01f00000
 
-# Dtb
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
-
 # cmdline
 VENDOR_CMDLINE := console=ttyMSM0,115200n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000
 VENDOR_CMDLINE += msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm
@@ -206,8 +203,8 @@ ifeq ($(FOX_VENDOR_BOOT_RECOVERY),1)
   # dtb stuff
   BOARD_INCLUDE_DTB_IN_BOOTIMG := true
   BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
-  BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtbs
-
+  BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/prebuilt/dtbs
+  
   # header
   ifeq ($(BOARD_BOOT_HEADER_VERSION),4)
       BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
