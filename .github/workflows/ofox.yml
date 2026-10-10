@@ -24,7 +24,7 @@ on:
       LUNCH_TARGET:
         description: "Full lunch target"
         required: true
-        default: "twrp_piano-bp2a-eng"
+        default: "twrp_alioth-eng"
 
 env:
   DEVICE_PATH: device/xiaomi/alioth
@@ -53,7 +53,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: device_tree
-          ref: ofox-16
+          ref: fox_16.0_new
 
       - name: Setup ccache
         uses: hendrikmuhs/ccache-action@v1.2
@@ -141,16 +141,16 @@ jobs:
           lunch ${{ inputs.LUNCH_TARGET }}
           (while true; do echo "$(date +%T) building..."; free -h | sed -n 2p; sleep 30; done) &
           TIP=$!
-          m recoveryimage -j$(nproc)
+          m vendorbootimage -j$(nproc)
           kill $TIP || true
 
       # ---- gates: nothing is uploaded unless both pass --------------------
 
       - name: Gate - image invariants and size budget
-        run: bash "$DEVICE_PATH/tools/piano16-preflash-audit.sh" "out/target/product/$DEVICE_NAME/recovery.img"
+        run: bash "$DEVICE_PATH/tools/alioth-preflash-audit.sh" "out/target/product/$DEVICE_NAME/recovery.img"
 
       - name: Gate - ELF closure
-        run: python3 "$DEVICE_PATH/tools/piano16-elf-closure-audit.py" "out/target/product/$DEVICE_NAME/recovery.img"
+        run: python3 "$DEVICE_PATH/tools/alioth-elf-closure-audit.py" "out/target/product/$DEVICE_NAME/recovery.img"
 
       - name: Collect artifacts
         run: |
@@ -169,7 +169,4 @@ jobs:
           path: artifacts/
           retention-days: 14
           if-no-files-found: error
-
-      - name: Remove disposable CI AVB key
-        if: always()
-        run: rm -f "$DEVICE_PATH/security/recovery_avb.pem"
+          
