@@ -27,8 +27,8 @@ on:
         default: "twrp_piano-bp2a-eng"
 
 env:
-  DEVICE_PATH: device/xiaomi/piano
-  DEVICE_NAME: piano
+  DEVICE_PATH: device/xiaomi/alioth
+  DEVICE_NAME: alioth
 
 jobs:
   build:
