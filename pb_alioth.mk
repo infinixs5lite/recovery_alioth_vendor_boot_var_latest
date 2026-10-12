@@ -8,20 +8,20 @@
 # Release name
 PRODUCT_RELEASE_NAME := alioth
 
-DEVICE_PATH := device/xiaomi/$(PRODUCT_RELEASE_NAME)
+DEVICE_PATH := device/xiaomi/alioth
+
+# Configure core_64_bit_only.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
 # Inherit from alioth device
-$(call inherit-product, $(DEVICE_PATH)/device.mk)
-
-# Inherit any OrangeFox-specific settings
-$(call inherit-product-if-exists, $(DEVICE_PATH)/fox_mikona.mk)
+$(call inherit-product, device/xiaomi/alioth/device.mk)
 
 # Inherit some common twrp stuff
-$(call inherit-product, vendor/twrp/config/common.mk)
+$(call inherit-product, vendor/pb/config/common.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := twrp_$(PRODUCT_RELEASE_NAME)
-PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
+PRODUCT_NAME := pb_alioth
+PRODUCT_DEVICE := alioth
 PRODUCT_BRAND := POCO
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := POCO F3
