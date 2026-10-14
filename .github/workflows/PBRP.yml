@@ -32,15 +32,16 @@ on:
         - master
         - fox_14.1
         - PBRP
+        - pbrp
       DEVICE_PATH:
         description: 'Device tree path inside the source tree'
         required: true
-        default: 'device/xiaomi/beryl'
+        default: 'device/xiaomi/alioth'
         type: string
       DEVICE_NAME:
         description: 'Device codename'
         required: true
-        default: 'beryl'
+        default: 'alioth'
         type: string
       RELEASE_TYPE:
         description: 'Release label'
@@ -149,12 +150,12 @@ jobs:
             exit 1
           }
 
-          # Clean up any leftover twrp_alioth.mk if pb_beryl.mk does not exist yet
+          # Clean up any leftover twrp_alioth.mk if pb_alioth.mk does not exist yet
           if [ -f "$TREE_DIR/twrp_alioth.mk" ] && [ ! -f "$TREE_DIR/pb_alioth.mk" ]; then
             mv -f "$TREE_DIR/twrp_alioth.mk" "$TREE_DIR/pb_alioth.mk"
           fi
 
-          # Ensure AndroidProducts.mk exists and includes pb_𝙖𝙡𝙞𝙤𝙩𝙝.mk
+          # Ensure AndroidProducts.mk exists and includes pb_alioth.mk
           if [ ! -f "$TREE_DIR/AndroidProducts.mk" ] || ! grep -q "pb_alioth" "$TREE_DIR/AndroidProducts.mk"; then
             cat > "$TREE_DIR/AndroidProducts.mk" <<'EOF'
           PRODUCT_MAKEFILES := \
