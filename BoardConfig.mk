@@ -97,8 +97,8 @@ ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
     LLVM := 1
     LLVM_IAS := 1
 else
-    TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/Image.gz-dtb
-#    BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
+    TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
+#    BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 endif
 
 BOARD_USES_RECOVERY_AS_BOOT := true
@@ -202,8 +202,8 @@ ifeq ($(FOX_VENDOR_BOOT_RECOVERY),1)
 
   # dtb stuff
   BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-  BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
-  BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/prebuilt/dtbs
+  BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+  BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtbs
   
   # header
   ifeq ($(BOARD_BOOT_HEADER_VERSION),4)
