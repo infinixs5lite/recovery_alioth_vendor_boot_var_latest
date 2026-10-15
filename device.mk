@@ -8,6 +8,13 @@
 # Our path
 DEVICE_PATH := device/xiaomi/alioth
 
+# Enable updating of APEXes (if present in build tree)
+$(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot (if present in build tree)
+$(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+$(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+
 # Our various search paths for Soong namespaces
 MIKONA_SOONG_PATHS := device/xiaomi/alioth #device/xiaomi/sm8250-common # device/xiaomi/mikona device/xiaomi/munch
 
