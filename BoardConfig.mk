@@ -98,7 +98,10 @@ ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
     LLVM_IAS := 1
 else
     TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-#    BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+    BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+    TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/kona.dtb
+    TARGET_PREBUILT_DTB += $(DEVICE_PATH)/prebuilt/kona-v2.dtb
+    TARGET_PREBUILT_DTB += $(DEVICE_PATH)/prebuilt/kona-v2.1.dtb 
 endif
 
 BOARD_USES_RECOVERY_AS_BOOT := true
