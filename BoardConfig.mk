@@ -203,6 +203,9 @@ ifeq ($(FOX_VENDOR_BOOT_RECOVERY),1)
   BOARD_INCLUDE_DTB_IN_BOOTIMG := true
   BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
   BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtbs
+  TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtbs/kona.dtb
+  TARGET_PREBUILT_DTB += $(DEVICE_PATH)/prebuilt/dtbs/kona-v2.dtb
+  TARGET_PREBUILT_DTB += $(DEVICE_PATH)/prebuilt/dtbs/kona-v2.1.dtb 
   
   # header
   ifeq ($(BOARD_BOOT_HEADER_VERSION),4)
