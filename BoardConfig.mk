@@ -197,6 +197,7 @@ SHRP_NO_SAR_AUTOMOUNT := true
 SHRP_LITE := false
 SHRP_OFFICIAL := true
 SHRP_EDL_MODE := 1
+SHRP_FLASH := 1
 SHRP_CUSTOM_FLASHLIGHT := true
 SHRP_FONP_1 := sys/devices/platform/flashlights_ocp8132/torch_brightness
 SHRP_FONP_2 := sys/devices/platform/flashlights_ocp8132/torch_brightness
