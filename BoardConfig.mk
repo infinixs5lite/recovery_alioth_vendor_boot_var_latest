@@ -202,10 +202,6 @@ SHRP_CUSTOM_FLASHLIGHT := true
 SHRP_FONP_1 := sys/devices/platform/flashlights_ocp8132/torch_brightness
 SHRP_FONP_2 := sys/devices/platform/flashlights_ocp8132/torch_brightness
 
-# otacert
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(DEVICE_PATH)/security/miui_releasekey \
-
 TWRP_REQUIRED_MODULES += \
     miui_prebuilt \
     magisk_prebuilt \
