@@ -143,11 +143,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # omapi
 TW_INCLUDE_OMAPI := true
-#
-
-# OEM otacert
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/recovery/security/miui
 
 # Health
 PRODUCT_PACKAGES += \
