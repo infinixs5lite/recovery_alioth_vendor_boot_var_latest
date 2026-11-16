@@ -210,10 +210,6 @@ SHRP_SKIP_DEFAULT_ADDON_2 := true
 SHRP_SKIP_DEFAULT_ADDON_3 := true
 SHRP_SKIP_DEFAULT_ADDON_4 := true
 
-TWRP_REQUIRED_MODULES += \
-    miui_prebuilt \
-    magisk_prebuilt \
-
 # enable python
 TW_INCLUDE_PYTHON := true
 
@@ -248,15 +244,4 @@ ifeq ($(FOX_VENDOR_BOOT_RECOVERY),1)
   BOARD_INCLUDE_DTB_IN_BOOTIMG := true
   BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
   BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtbs
-
-  # header
-  ifeq ($(BOARD_BOOT_HEADER_VERSION),4)
-      BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
-  endif
-
-  # alioth vendor_boot ROMs still only have a v3 header
-  # disable the reflash menu, until all vendor_boot ROMs have a v4 header - else it won't work
-  OF_NO_REFLASH_CURRENT_ORANGEFOX := 1
-endif
-#
 
