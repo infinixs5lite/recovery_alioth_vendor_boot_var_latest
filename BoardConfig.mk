@@ -196,11 +196,19 @@ SHRP_FLASH_MAX_BRIGHTNESS := 300
 SHRP_NO_SAR_AUTOMOUNT := true
 SHRP_LITE := false
 SHRP_OFFICIAL := true
+TW_INCLUDE_TWRP_CMD := true
+TW_INCLUDE_TWRP_CLI := true
 SHRP_EDL_MODE := 1
 SHRP_FLASH := 1
 SHRP_CUSTOM_FLASHLIGHT := true
 SHRP_FONP_1 := sys/devices/platform/flashlights_ocp8132/torch_brightness
 SHRP_FONP_2 := sys/devices/platform/flashlights_ocp8132/torch_brightness
+
+# SHRP Addons
+SHRP_SKIP_DEFAULT_ADDON_1 := true
+SHRP_SKIP_DEFAULT_ADDON_2 := true
+SHRP_SKIP_DEFAULT_ADDON_3 := true
+SHRP_SKIP_DEFAULT_ADDON_4 := true
 
 TWRP_REQUIRED_MODULES += \
     miui_prebuilt \
