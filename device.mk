@@ -144,6 +144,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # omapi
 TW_INCLUDE_OMAPI := true
 
+# otacert
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    $(DEVICE_PATH)/security/miui_releasekey
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
